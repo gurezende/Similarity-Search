@@ -105,10 +105,10 @@ This project provides a Streamlit web application that visualizes similarity sea
 
 ## Project Structure
 
-similarity-search-visualization/
-├── streamlit_app.py
-├── healthnews.json
-└── README.md
+similarity-search-visualization/<br>
+├── streamlit_app.py<br>
+├── healthnews.json<br>
+└── README.md<br>
 
 -   `streamlit_app.py`: The main Streamlit application script.
 -   `healthnews.json`: Sample health news data in JSON format.
