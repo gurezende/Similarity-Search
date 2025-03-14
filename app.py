@@ -75,7 +75,7 @@ if prepare_data:
     # Sidebar header
     st.header(":one: Step 1: Load and Prepare the Data")
     st.caption("There is a sample of Health News data pre-configured.")
-    data = pd.read_json("healthnews_yr.json", lines=True)
+    data = pd.read_json("healthnews.json", lines=True)
     st.session_state['df'] = data.sample(500)
     st.write(":white_check_mark: Data loaded successfully!")
     st.write(st.session_state['df'].sample(3))
