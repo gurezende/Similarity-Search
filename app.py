@@ -123,7 +123,7 @@ if viz: #if the search button is pressed
     # Query the collection
     results = st.session_state['collection'].query(
         query_texts=query, # Chroma will embed this for you
-        n_results=3 # how many results to return
+        n_results=4 # how many results to return
     )
 
     # write the results
@@ -143,25 +143,34 @@ if viz: #if the search button is pressed
     # Reduce dimensions with PCA
     reduced_vectors = reduce_dimensions(all_vectors)
 
-    # Create Plotly figure
-    fig = go.Figure(data=[
-        go.Scatter3d(
-            x=[reduced_vectors[0, 0]],
-            y=[reduced_vectors[0, 1]],
-            z=[reduced_vectors[0, 2]],
+
+    fig = go.Figure()
+
+    # Query point
+    fig.add_trace(go.Scatter3d(
+        x=[reduced_vectors[0, 0]],
+        y=[reduced_vectors[0, 1]],
+        z=[reduced_vectors[0, 2]],
+        mode='markers',
+        marker=dict(size=10, color='red'),
+        name='Query',
+        showlegend=True
+    ))
+
+    # Result points
+    result_names = ['Result 1', 'Result 2', 'Result 3', 'Result 4'] # Or get these from your data
+    result_colors = ['blue', 'orange', 'forestgreen', 'purple']
+
+    for i in range(1, len(reduced_vectors)):
+        fig.add_trace(go.Scatter3d(
+            x=[reduced_vectors[i, 0]],
+            y=[reduced_vectors[i, 1]],
+            z=[reduced_vectors[i, 2]],
             mode='markers',
-            marker=dict(size=10, color='red'),  # Query point (red)
-            name='Query'
-        ),
-        go.Scatter3d(
-            x=reduced_vectors[1:, 0],
-            y=reduced_vectors[1:, 1],
-            z=reduced_vectors[1:, 2],
-            mode='markers',
-            marker=dict(size=6, color='blue'),  # Result points (blue)
-            name='Results'
-        )
-    ])
+            marker=dict(size=6, color=result_colors[i-1]),
+            name=result_names[i-1],
+            showlegend=True
+        ))
 
     # Modify axis ranges
     fig.update_layout(scene = dict(
