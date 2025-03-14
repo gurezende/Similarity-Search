@@ -125,7 +125,7 @@ if viz: #if the search button is pressed
     print('\n\ncounter:',st.session_state['counter'])
     # If this button is pressed before the Prepare Data button, show an error message
     if st.session_state['counter'] == 0:
-        st.error("Oops! Please click Prepare the Data Button before searching.")
+        st.error("Oops! Please click <<Prepare the Data>> Button before searching.")
 
     # Query the collection
     results = st.session_state['collection'].query(
