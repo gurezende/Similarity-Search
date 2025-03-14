@@ -18,7 +18,6 @@ This project provides a Streamlit web application that visualizes similarity sea
     -   [Streamlit App](#streamlit-app)
 -   [Project Structure](#project-structure)
 -   [Streamlit App Page](#streamlit-app-page)
--   [Dependencies](#dependencies)
 -   [Author](#contributing)
 -   [License](#license)
 
