@@ -1,0 +1,19 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+
+# Files
+ChromaDB_filesindex.ipynb
+healthnews_vectors.npy
+healthnews.json
+healthnews.txt
+stt.json
+
