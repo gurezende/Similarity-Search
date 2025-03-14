@@ -44,6 +44,9 @@ st.set_page_config(page_title="Similarity Search Visualization",
 st.title("Similarity Search Visualization")
 st.write('Welcome to the Similarity Search Visualization App! This app allows you to perform similarity search on a vector database and visualize the results in a 3D plot.')
 
+# Counter
+counter = 0
+
 # Sidebar for the Prepare Data and Clear Cache buttons
 with st.sidebar:
 
@@ -51,6 +54,7 @@ with st.sidebar:
     st.header(":point_down: :red[Start Here]")
     st.subheader(":one: Click the button before running a search")
     prepare_data = st.button("Prepare the Data")
+    counter += 1
 
     st.divider()
 
@@ -118,6 +122,10 @@ if prepare_data:
 
 # ----- Visualization -------
 if viz: #if the search button is pressed
+
+    # If this button is pressed before the Prepare Data button, show an error message
+    if counter == 0:
+        st.error("Please prepare the data before searching.")
 
     # Query the collection
     results = st.session_state['collection'].query(
