@@ -13,7 +13,7 @@ wheels/
 # Files
 ChromaDB_filesindex.ipynb
 healthnews_vectors.npy
-healthnews.json
+healthnews_yr.json
 healthnews.txt
 stt.json
 
